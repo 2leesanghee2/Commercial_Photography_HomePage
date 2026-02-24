@@ -9,7 +9,7 @@ const FAQContainer = styled.div`
     -ms-user-select: none;
     user-select: none;
     position: relative;
-    height: ${props => props.theme.vh(1300)};
+    height: ${props => props.theme.vh(1400)};
 `;
 
 const Info = styled.div`
@@ -136,9 +136,9 @@ export default function FAQ() {
                 {faqData.map((item, index) => {
                     const isOpen = openIndex === index;
                     return (
-                        <ItemBox 
-                            key={index} 
-                            color={item.color} 
+                        <ItemBox
+                            key={index}
+                            color={item.color}
                             isOpen={isOpen}
                             onClick={() => setOpenIndex(isOpen ? null : index)}
                         >
@@ -147,10 +147,8 @@ export default function FAQ() {
                                     <span>Q</span>
                                     <span>{item.q}</span>
                                 </QWrapper>
-                                {/* 기호 크기도 theme.vw로 적용하여 반응형 대응 */}
-                                <span style={{fontSize: '2vw'}}>{isOpen ? "—" : "+"}</span>
+                                <span style={{ fontSize: isOpen ? '1.2vw' : '2vw', fontWeight: isOpen ? '600' : '400' }}>{isOpen ? "—" : "+"}</span>
                             </QuestionRow>
-                            
                             <AnswerContent isOpen={isOpen}>
                                 {item.a}
                             </AnswerContent>
